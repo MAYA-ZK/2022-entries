@@ -1,4 +1,6 @@
 ![Docker build](https://github.com/MAYA-ZK/2022-entries/actions/workflows/build-docker.yaml/badge.svg)
+![Docker build](https://github.com/MAYA-ZK/2022-entries/actions/workflows/build-benchmark.yaml/badge.svg)
+
 
 # 2022-entries
 
@@ -27,5 +29,6 @@ docker run -d \
 # run the build
 docker exec -it zprize22-msm-gpu bash
 cd /home
+. "$HOME/.cargo/env"
 cargo build --release
 ```
