@@ -12,8 +12,14 @@ jobs:
         uses: Jimver/cuda-toolkit@v0.2.11
         id: cuda-toolkit
         with:
-          cuda: '12.2'
+          cuda: '12.1.0'
       - name: Set up Rust
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+      - name: Build CUDA and Rust
+        env:
+          NVCC_PREPEND_FLAGS: "-ccbin=gcc -std=c++17"
+        run: |
+          cd open-division/prize1-msm/prize1a-msm-gpu/combined-top-solutions
+          cargo build
